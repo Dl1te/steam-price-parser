@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamPrice — Управление играми</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗑️ SteamPrice</h1>
+            <p>Управление списком игр</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Удалить игру</h2>
+            <form method="post">
+                <div class="form-group">
+                    <label>🎮 Название игры</label>
+                    <input type="text" name="name" placeholder="Например: Counter-Strike 2" required>
+                </div>
+                <button type="submit" class="btn btn-danger">🗑️ Удалить игру</button>
+            </form>
+
+            <hr>
+
+            <div class="btn-group">
+                <button onclick="window.location.href='/'" class="btn btn-secondary">← На главную</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">📋 Текущий список игр</h2>
+
+            {% if items %}
+            <div class="games-list">
+                {% for item in items %}
+                <div class="game-row">
+                    <div class="game-info">
+                        <div class="game-title">🎮 {{ item.name }}</div>
+                        <div class="game-detail">{{ item.url }}</div>
+                    </div>
+                    <div class="game-price">{{ item.price }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <p>Список игр пуст. Добавьте игры на главной странице.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

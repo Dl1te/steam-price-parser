@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamPrice — Мониторинг цен Steam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 SteamPrice</h1>
+            <p>Анализ и отслеживание цен в Steam</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Добавить игру</h2>
+            <form method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>🔗 Ссылка на игру</label>
+                        <input type="text" name="url" placeholder="https://store.steampowered.com/app/..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">🔍 Узнать цену</button>
+                </div>
+            </form>
+
+            <div class="btn-group">
+                <form action="/run-function" method="POST">
+                    <button type="submit" class="btn btn-secondary">🔄 Обновить все цены</button>
+                </form>
+                <button onclick="window.location.href='/d'" class="btn btn-outline">🗑️ Управление играми</button>
+            </div>
+        </div>
+
+        {% if price %}
+        <div class="alert alert-success">
+            <span>✅</span>
+            <span>{{ price }}</span>
+        </div>
+        {% endif %}
+
+        <div class="card">
+            <h2 class="card-title">📋 Список отслеживаемых игр</h2>
+
+            {% if items %}
+            <div class="games-grid">
+                {% for item in items %}
+                <div class="game-card">
+                    <div class="game-name">🎮 {{ item.name }}</div>
+                    <div class="game-price">{{ item.price }}</div>
+                    <div class="game-url">{{ item.url }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <p>Список пуст. Добавьте игру через форму выше.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

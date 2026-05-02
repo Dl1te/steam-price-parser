@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Flask
+instance/
+.webassets-cache
+.env
+.flaskenv
+*.log
+
+# Ваш JSON файл с ценами (если не хотите коммитить его в Git)
+prices.json
+data/*.json
+*.json
+
+# Файлы с данными парсинга
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.suo
+*.user
+
+# Логи
+*.log
+logs/
+error.log
+access.log
+
+# Временные файлы
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Конфиги с секретами
+config.py
+secrets.py
+.keys
+.pem
+*.pem
+
+# Виртуальное окружение
+lib/
+lib64/
+bin/
+include/
+share/
+pyvenv.cfg
+
+# Файлы отладки
+.debug/
+dump.rdb
+
+# Докер (если используете)
+.docker/
+docker-compose.override.yml
+
+# Селениум (если используете для парсинга)
+geckodriver.log
+chromedriver.log
+selenium.log
