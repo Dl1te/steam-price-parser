@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Steam Price Parser
 
 Веб-приложение на Flask для парсинга цен игр из Steam по URL и сохранения в JSON.
@@ -42,3 +43,6 @@ cd steam-price-parser
 
 
 
+=======
+# steam-price-parser
+>>>>>>> 567e11be9b0925929bd4f073dffb497cf2bd6e56
